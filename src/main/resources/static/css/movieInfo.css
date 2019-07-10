@@ -1,0 +1,187 @@
+body {
+	font-family: Microsoft YaHei;
+}
+
+.search {
+	height: 52px;
+	width: 100%;
+	position: absolute;
+	top: 53px;
+	background-color: #F8F8F8;
+}
+
+#search {
+	width: 450px;
+	left: 23%;
+}
+
+#menu {
+	width: 100%;
+	height: 40px;
+	background-color: #F8F8F8;
+	position: absolute;
+	top: 106px;
+}
+
+#nav {
+	position: absolute;
+	left: 23%;
+}
+
+.right {
+	position: absolute;
+	left: 1600px;
+}
+
+#myCarousel {
+	positon: absolute;
+	top: 300px;
+}
+
+article {
+	position: absolute;
+	top: 200px;
+	left: 23%;
+}
+
+#advertisement {
+	position: absolute;
+	top: 50%;
+	left: 1400px;
+	position: fixed;
+}
+
+h2, h3, a, p {
+	display: inline;
+}
+
+#moviepanel {
+	background-color: #FAFAFA;
+	width: 900px;
+	height: 300px;
+	border-radius: 10px;
+}
+
+#title {
+	position: relative;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	top: 10px;
+}
+
+#image {
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin: 10px;
+}
+
+#moviecover {
+	width: 135px;
+	height: 200px;
+}
+
+#movieInfo {
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin: 10px;
+}
+
+#moviescore {
+	display: inline-block;
+	float: left;
+	position: relative;
+	margin: 5px;
+}
+
+h4 {
+	color: green;
+	position: relative;
+	top: 5px;
+	margin: 5px;
+}
+
+#synopsis {
+	width: 900px;;
+	position: relative;
+	top: 50px;
+	background-color: #FAFAFA;
+	border-radius: 10px;
+}
+
+#assess {
+	position: relative;
+	top: 150px;
+	background-color: #FAFAFA;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+.oneAssess{
+	border-top:1px dashed #DDDDDD;
+	width:500px;
+	padding-top:20px;
+	padding-bottom:20px;	
+}
+
+#addAssess {
+	position: relative;
+	top: 220px;
+	background-color: #FAFAFA;
+	border-radius: 10px;
+}
+ul li{
+	list-style: none;
+}
+
+textarea{
+	height:50px;
+	width:157px;
+}
+#releaseInfo {
+	position: relative;
+	top: 100px;
+}
+
+footer {
+	position: relative;
+	top: 1500px;
+	width: 100%;
+	height: 240px;
+	background-color: #F8F8F8;
+}
+
+.bottemul {
+	display: inline-block;
+	list-style: none;
+	margin: 20px;
+}
+
+li p {
+	font: lighter;
+	color: #888888;
+}
+
+h5 {
+	font-weight: 700;
+}
+
+#ulli {
+	position: relative;
+	left: 20%;
+	display: inline-block;
+}
+
+#contact {
+	position: relative;
+	left: 600px;
+	display: inline-block;
+}
+
+#bottem {
+	border-top: 1px solid grey;
+	padding-top: 10px;
+	position: relative;
+	left: 30%;
+	width: 800px;
+}

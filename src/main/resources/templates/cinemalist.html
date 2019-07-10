@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>影院列表</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/cinemalist.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       	
+       		<div id="moviepanel">
+	       		<div id="title">
+	       			<h2 th:text="${name}"></h2>&nbsp
+       				<h3 th:text="${suffix}"></h3>
+	       		</div>
+       			
+       			<div id="image">
+       				<img id="moviecover" th:src="${id}">
+       			</div>
+       			<div id="movieInfo">
+       				<p>导演: </p><a th:text="${director}" href="#"></a><br>
+       				<p>编剧: </p><a th:text="${screenWriter}" href="#"></a><br>
+       				<p>主演: </p><a th:text="${performer}" href="#"></a><br>
+       				<p>类型: </p><p th:text="${type}"></p><br>
+       				<p>制片国家/地区: </p><p th:text="${region}"></p><br>
+       				<p>语言: </p><p th:text="${language}"></p><br>
+       				<p>上映日期: </p><p th:text="${releaseDate}"></p><br>
+       				<p>片长: </p><p th:text="${filmLength}"></p><br>
+       				<p>又名: </p><p th:text="${alias}"></p>
+       			</div>
+       			<div id="score">
+       				<p>评分: </p><p th:text="${score}" style="color:orange;"></p><br>
+       				<p th:text="${assessNum}" style="color:purple;"></p><p>人评价</p>
+       			</div>
+       			
+       			
+       		</div>
+       		
+       		<div id="synopsis">
+	       		<h4>剧情简介</h4><br>
+	       		&nbsp&nbsp
+	       		<p th:text="${synopsis}"></p>
+	       	</div>
+       		
+       		<div id="cinemalist">
+       			<h4 style="color:black;font-weight:700;">影院列表</h4>
+       			<hr>
+       			<div>
+	       			<div th:each="m:${list}" class="cinema">
+	       				<a style="font:20px;color:black;" th:href="@{/cinema(moviename=${name},cinemaname=${m.cinemaName})}" th:text="${m.cinemaName}"></a><br>
+	       				<p style="font:15px;color:#888888" th:text="${m.address}"></p>
+						<a th:href="@{/cinema(moviename=${name},cinemaname=${m.cinemaName})}" id="buy-btn">选座购票</a>
+						<hr>
+					</div>
+	       		</div>
+       		</div>
+       		
+       		
+       		
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	</script>
+</html>

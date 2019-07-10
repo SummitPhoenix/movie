@@ -1,0 +1,170 @@
+body {
+	font-family: Microsoft YaHei;
+}
+
+.search {
+	height: 52px;
+	width: 100%;
+	position: absolute;
+	top: 53px;
+	background-color: #F8F8F8;
+}
+
+#search {
+	width: 450px;
+	left: 23%;
+}
+
+#menu {
+	width: 100%;
+	height: 40px;
+	background-color: #F8F8F8;
+	position: absolute;
+	top: 106px;
+}
+
+#nav {
+	position: absolute;
+	left: 23%;
+}
+
+.right {
+	position: absolute;
+	left: 1600px;
+}
+
+#myCarousel {
+	positon: absolute;
+	top: 300px;
+}
+
+article {
+	position: relative;
+	width: 100%;
+	top: 76px;
+}
+
+#advertisement {
+	position: absolute;
+	top: 50%;
+	left: 1400px;
+	position: fixed;
+}
+
+h2, h3, a, p {
+	display: inline;
+}
+
+#cinemapanel {
+	background: url(/img/banner.png);
+	background-color: #FAFAFA;
+	width: 100%;
+	height: 340px;
+}
+
+img {
+	display: inline-block;
+	float: left;
+	border: 4px solid white;
+}
+
+#title {
+	width: 800px;
+	height: 300px;
+	position: relative;
+	margin-left: 380px;
+	margin-bottom: 20px;
+	top: 100px;
+}
+
+#content {
+	color: white;
+	position: relative;
+	width: 400px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+th {
+	font-weight: bold;
+	display: table-cell;
+	vertical-align: inherit;
+	color: #333;
+	font-size: 16px;
+	display: inline-block;
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+#seats{
+	left: 25%;
+	width: 500px;
+	padding: 20px;
+	border-radius: 10px;
+	position: relative;
+	top: 200px;
+	background-color: #FAFAFA;
+	border:1px solid red;
+}
+.tdseat{
+	display:inline-block;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:5px;
+}
+.aseat{
+	display:inline-block;
+	width:32px;
+	height:27px;
+	background-image: url(/img/seat.png);
+}
+.selected{
+	display:inline-block;
+	width:32px;
+	height:27px;
+	background-image: url(/img/selected.png);
+}
+
+footer {
+	position: relative;
+	top: 600px;
+	width: 100%;
+	height: 240px;
+	background-color: #F8F8F8;
+}
+
+.bottemul {
+	display: inline-block;
+	list-style: none;
+	margin: 20px;
+}
+
+li p {
+	font: lighter;
+	color: #888888;
+}
+
+h5 {
+	font-weight: 700;
+}
+
+#ulli {
+	position: relative;
+	left: 20%;
+	display: inline-block;
+}
+
+#contact {
+	position: relative;
+	left: 600px;
+	display: inline-block;
+}
+
+#bottem {
+	border-top: 1px solid grey;
+	padding-top: 10px;
+	position: relative;
+	left: 30%;
+	width: 800px;
+}

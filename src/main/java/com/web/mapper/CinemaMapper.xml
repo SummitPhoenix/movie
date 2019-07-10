@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.CinemaMapper">
+	
+	
+	<select id="getCinemaList" resultType="java.lang.String">
+		select
+			cinemaId
+		from
+			CinemaList
+		where
+			movieId = (select id from movie where name = #{movieName})
+	</select>
+	
+	<select id="getCinemaName" resultType="java.lang.String">
+		select
+			cinemaName
+		from
+			Cinema
+		where
+			cinemaId = #{cinemaId}
+	</select>
+	
+	<select id="getCinema" resultType="com.web.entity.Cinema">
+		select
+			cinemaName,
+			address,
+			phone,
+			service
+		from
+			Cinema
+		where
+			cinemaName = #{cinemaName}
+	</select>
+	
+	<select id="getScheduleList" resultType="java.lang.String">
+		select
+			schedules
+		from
+			movieSchedule
+		where
+			cinemaId = (select cinemaId from cinema where cinemaName = #{cinemaName})
+		and
+			movieId = (select id from movie where name = #{movieName})
+	</select>
+	
+	<select id="getSingleSchedule" resultType="com.web.entity.SingleSchedule">
+		select
+			scheduleId,
+			screenDate,
+			screenTime,
+			languageVersion,
+			videoHall,
+			price
+		from
+			singleSchedule
+		where
+			scheduleId = #{scheduleId}
+	</select>
+	
+	<select id="getScreenMovieName" resultType="java.lang.String">
+		select
+			name
+		from
+			movie
+		where
+			`release` = 1
+	</select>
+	
+	<select id="getSelectedSeatsInfo" resultType="java.lang.String">
+		select
+			selectedSeats
+		from
+			singleSchedule
+		where
+			scheduleId = #{scheduleId}
+	</select>
+	
+	<insert id="insertCinemaInfo">
+		insert into
+			cinema(cinemaName,address,phone,service)
+		values
+			(#{cinemaName},#{address},#{phone},#{service})
+	</insert>
+	
+	<select id="getMovieId" resultType="java.lang.String">
+		select
+			id
+		from
+			movie
+		where
+			name = #{movieName}
+	</select>
+	
+	<select id="getCinemaId" resultType="java.lang.String">
+		select
+			cinemaId
+		from
+			cinema
+		where
+			cinemaName = #{cinemaName}
+	</select>
+	
+	<update id="updateCinemaList">
+		update
+			cinemaList
+		set
+			cinemaId = #{cinemaId}
+		where
+			movieId = (select id from movie where name = #{movieName})
+	</update>
+	
+	<update id="setSelectedSeats">
+		update
+			singleSchedule
+		set
+			selectedSeats = CONCAT(#{selectedSeats}, #{seatId})
+		where
+			scheduleId = #{scheduleId}
+		and
+			selectedSeats 
+		not like
+			"%"#{seatId}"%"
+	</update>
+	
+	<insert id="insertSingleSchedule" useGeneratedKeys="true" keyProperty="scheduleId" keyColumn="scheduleId">
+		insert into
+			singleSchedule(screenDate,screenTime,languageVersion,videoHall,price)
+		values
+			(#{screenDate},#{screenTime},#{languageVersion},#{videoHall},#{price})
+	</insert>
+	
+	<insert id="insertMovieSchedule">
+		insert into
+			movieSchedule(cinemaId,movieId,schedules)
+		values
+			(#{cinemaId},#{movieId},#{schedules})
+	</insert>
+	
+	<select id="getSchedules" resultType="java.lang.String">
+		select
+			schedules
+		from
+			movieSchedule
+		where
+			cinemaId = #{cinemaId}
+		and
+			movieId = (select id from movie where name = #{movieName})
+	</select>
+	
+	<update id="updateMovieSchedule">
+		update
+			MovieSchedule
+		set
+			schedules = #{schedules}
+		where
+			cinemaId = #{cinemaId}
+		and
+			movieId = (select id from movie where name = #{movieName})
+	</update>
+	
+	<update id="updateMovieStatus">
+		update
+			Movie
+		set
+			`release` = #{status}
+		where
+			name = #{movieName}
+	</update>
+	
+	<select id="getAllCinema" resultType="java.lang.String">
+		select
+			cinemaId
+		from
+			cinema
+	</select>
+	
+	<insert id="addCinemaToCinemaList">
+		insert into
+			cinemaList(movieId,cinemaId)
+		values
+			((select id from movie where name = #{movieName}),(select cinemaId from cinema where cinemaName = #{cinemaName}))
+	</insert>
+ </mapper>

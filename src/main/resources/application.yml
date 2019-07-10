@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+    thymeleaf:
+        prefix: classpath:/templates/
+    datasource:
+        name: mybatis 
+        url: jdbc:mysql://127.0.0.1:3306/movie?serverTimezone=UTC 
+        username: root 
+        password: 123 
+    
+
+mybatis: 
+  mapper-locations: classpath:mapper/*.xml  #mapper映射xml文件的所在路径 
+  type-aliases-package: com.web.entity  # 对应实体类的路径  
+
+movie:
+  imageTextInputUrl: C:\\Users\\Smartisan\\Desktop\\毕业设计\\上传图文.txt
+  movieInfoInputUrl: C:\\Users\\Smartisan\\Desktop\\毕业设计\\movieData.txt

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="shortcut icon" href="http://www.localhost:8080/favicon.ico"/>
+        <meta name="referrer" content="no-referrer" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <title>首页</title>
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery.js"></script> -->
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+        <script src="bootstrap.min.js"></script>
+		<link href="css/index.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">最新热门电影</h3>
+				        <a class="subtitle" href="/index">热门</a>
+				        <a class="subtitle" href="/index_highscore">高分</a>
+				        <a class="subtitle" href="/index_plot">剧情</a>
+				        <a class="subtitle" href="/index_action">动作</a>
+				        <a class="subtitle" href="/index_comedy">喜剧</a>
+				        <a class="subtitle" href="/index_love">爱情</a>
+				        <a class="subtitle" href="/index_science">科幻</a>
+				        <a class="subtitle" href="/index_suspense">悬疑</a>
+				    </div>
+				    <div class="panel-body">
+				    	<hr>
+					    <div th:each="m:${list}" class="movie">
+					    	<a class="aimg" th:href="@{/movie(moviename=${m.name})}">
+					    		<img class="movieimg" th:src="${m.id}">
+					    	</a>
+				    		<a class="moviea" th:href="@{/movie(moviename=${m.name})}" th:text="${m.name}"></a>
+				    		<p class="moviep" th:text="${m.score}"></p>
+					    </div>
+				    	
+				    </div>
+				</div>
+       		</div>
+       		
+       		<h2 style="font-size:16px">热门影讯推荐</h2>
+       		<br>
+       		<hr>
+       		<div id="myCarousel" class="carousel slide">
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>   
+				
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href="/imageText?id=title1">
+							<img src="/img/imageText/cover1.png" alt="First slide">
+						</a>
+						
+						<div class="carousel-caption" th:utext="${title1}" >标题 1</div>
+					</div>
+					<div class="item">
+						<a href="/imageText?id=title2">
+							<img src="/img/imageText/cover2.png" alt="Second slide">
+						</a>
+						
+						<div class="carousel-caption" th:utext="${title2}" >标题 2</div>
+					</div>
+					<div class="item">
+						<a href="/imageText?id=title3">
+							<img src="/img/imageText/cover3.png" alt="Third slide">
+						</a>
+						
+						<div class="carousel-caption" th:utext="${title3}" >标题 3</div>
+					</div>
+				</div>
+				<!-- 轮播导航 -->
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				</a>
+			</div>
+			
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script type="text/javascript">
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	    setTimeout(function () { 
+	    	$("#index").attr("class", "active");
+	    }, 50);
+	</script>
+</html>

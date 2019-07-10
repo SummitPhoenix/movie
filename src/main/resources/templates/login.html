@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>登录</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<style type="text/css">
+			body{
+				font-family:Microsoft YaHei;
+				background-image: url("/img/p3765.jpg");
+			}
+			.right{
+				position:absolute;
+				left:1700px;
+			}
+			
+			
+			article{
+				
+			}
+			ul{
+				list-style: none;
+			}
+			img{
+				position:absolute;
+				left:10%;
+				top: 30%;
+				width:414px;
+				height:363px;
+			}
+			#form{
+				background: rgba(0,0,0,.5);
+				width:400px;
+				height:300px;
+				position: absolute;
+				left:60%;
+				top: 30%;
+			}
+			h2{
+				margin-left: 30px;
+			}
+			h2,p{
+				color:#ffffff;
+			}
+			p{
+				display: inline-block;
+			}
+			#button{
+				width:214px;
+			}
+		</style>
+	</head>
+ 
+	<body>
+		<header>
+       		<nav class="navbar navbar-inverse" role="navigation">
+			    <div class="container-fluid">
+			    <div>
+			        <ul class="nav navbar-nav">
+			        	<li><a href="/index">首页</a></li>
+			            <li class="right"><a href="login">登录</a></li>
+			            <li class="right"><a href="reg">注册</a></li>
+			            
+			        </ul>
+			    </div>
+			    </div>
+			</nav>
+		</header>
+		<article>
+			<img src="/img/highscore.png">
+			<div id="form">
+				<form action="handleLogin" onsubmit="return check()" method="post">
+					<h2>用户登陆</h2>
+					<hr>
+					<br>
+			        <ul>
+				        <li>
+				           	<p>手机号：</p><input type="text" name="phone" id="phone" onblur="checkPhone()" /> <span id="phoneSpan" style=" color:#F00">*11位数字</span>
+				        </li>
+				        <br>
+				        <li>
+				            <p>密码　：</p><input type="password" name="password" id="password" onblur="checkPassword()" /> <span id="passwordSpan" style=" color:#F00">*6-16位</span>
+				        </li>
+				        <br>
+				        <li>
+				            <input id="button"type="submit" value="登录"/>
+				        </li>
+				    </ul>
+				</form>
+			</div>
+			
+		</article>
+		<footer>
+			
+		</footer>
+	</body>
+	<script language="javascript">
+		var f1 = false;
+		var f2 = false;
+		function checkPhone(){
+			var obj=document.getElementById("phone");
+			var id=trim(obj.value);
+			var Regex= /^1\d{10}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>手机号格式错误！</font>";
+			}else{
+				f1 = true;
+			}
+			var span = document.getElementById("phoneSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function checkPassword(){
+			var obj=document.getElementById("password");
+			var id=trim(obj.value);
+			var Regex= /^\w{6,16}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>密码格式错误！</font>";
+			}else{
+				f2 = true;
+			}
+			var span = document.getElementById("passwordSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		
+		function trim(s){
+			return s.replace(/^\s+|\s+$/g,"");
+		}
+		function check(){
+			if(f1&&f2==true){
+				return true;
+			}
+			else{
+				alert("输入错误");
+				return false;
+			}
+		}
+	</script>
+</html>

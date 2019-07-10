@@ -1,0 +1,189 @@
+body {
+	font-family: Microsoft YaHei;
+}
+
+.search {
+	height: 52px;
+	width: 100%;
+	position: absolute;
+	top: 53px;
+	background-color: #F8F8F8;
+}
+
+#search {
+	width: 450px;
+	left: 23%;
+}
+
+#menu {
+	width: 100%;
+	height: 40px;
+	background-color: #F8F8F8;
+	position: absolute;
+	top: 106px;
+}
+
+#nav {
+	position: absolute;
+	left: 23%;
+}
+
+.right {
+	position: absolute;
+	left: 1600px;
+}
+
+#myCarousel {
+	positon: absolute;
+	top: 300px;
+}
+
+article {
+	position: absolute;
+	top: 200px;
+	left: 23%;
+}
+
+#advertisement {
+	position: absolute;
+	top: 50%;
+	left: 1400px;
+	position: fixed;
+}
+
+.panelTemplate {
+	width: 850px;
+	height: 900px;
+}
+
+.panel-heading {
+	height: 40px;
+}
+
+.panel-title {
+	float: left;
+	margin-right: 10px;
+}
+
+.subtitle {
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+hr {
+	position: relative;
+	top: -23px;
+	margin-bottom: -20px;
+}
+
+.movie {
+	width: 135px;
+	height: 230px;
+	border: 1px solid red;
+	display: inline-block;
+	float: left;
+	margin: 10px;
+}
+
+.aimg {
+	display: inline-block;
+	line-height: 0px;
+	width: 135px;
+	height: 200px;
+	position: absolute;
+	z-index: 1;
+}
+
+.movieimg {
+	width: 135px;
+	height: 200px;
+	position: absolute;
+	float: left;
+	z-index: 0;
+}
+
+.moviea {
+	text-align: center;
+	float: left;
+	margin-left: 15px;
+	margin-top: 200px;
+	position: relative;
+	float: left;
+}
+
+.moviep {
+	text-align: center;
+	margin-top: 200px;
+	float: left;
+	color: orange;
+	position: relative;
+	float: left;
+}
+
+#signOut{
+	position:relative;
+	top:-350px;
+	display: block;
+	width:75px;
+	height:40px;
+	background-color: #FAFAFA;
+	padding:8px;
+}
+
+#admin{
+	position:relative;
+	top:-300px;
+}
+
+#ticket{
+	width:330px;
+	left:450px;
+	position:absolute;
+	top:180px;
+	border:1px solid orange;
+	padding:5px;
+}
+
+footer {
+	position: relative;
+	top: 1000px;
+	width: 100%;
+	height: 240px;
+	background-color: #F8F8F8;
+}
+
+.bottemul {
+	display: inline-block;
+	list-style: none;
+	margin: 20px;
+}
+
+li p {
+	font: lighter;
+	color: #888888;
+}
+
+h5 {
+	font-weight: 700;
+}
+
+#ulli {
+	position: relative;
+	left: 20%;
+	display: inline-block;
+}
+
+#contact {
+	position: relative;
+	left: 600px;
+	display: inline-block;
+}
+
+#bottem {
+	border-top: 1px solid grey;
+	padding-top: 10px;
+	position: relative;
+	left: 30%;
+	width: 800px;
+}

@@ -1,0 +1,154 @@
+body {
+	font-family: Microsoft YaHei;
+}
+
+.search {
+	height: 52px;
+	width: 100%;
+	position: absolute;
+	top: 53px;
+	background-color: #F8F8F8;
+}
+
+#search {
+	width: 450px;
+	left: 23%;
+}
+
+#menu {
+	width: 100%;
+	height: 40px;
+	background-color: #F8F8F8;
+	position: absolute;
+	top: 106px;
+}
+
+#nav {
+	position: absolute;
+	left: 23%;
+}
+
+.right {
+	position: absolute;
+	left: 1600px;
+}
+
+#myCarousel {
+	positon: absolute;
+	top: 300px;
+}
+
+article {
+	position: absolute;
+	top: 200px;
+	left: 23%;
+}
+
+#advertisement {
+	position: absolute;
+	top: 50%;
+	left: 1400px;
+	position: fixed;
+}
+
+#type{
+	background-color: #FAFAFA;
+	border-radius: 10px;
+	padding:10px;
+}
+td{
+	display: inline-block;
+	margin:20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+td a{
+	font-size: 15px;
+}
+
+.panelTemplate {
+	width: 850px;
+	height: 1750px;
+	border: 1px solid #BCE8F1;
+}
+
+.movie {
+	width: 700px;
+	height: 150px;
+	border-top:1px dashed #DDDDDD;
+	float: left;
+	margin: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.aimg {
+	display: inline-block;
+	line-height: 0px;
+	width: 75px;
+	height: 110px;
+	position: absolute;
+	z-index: 1;
+}
+
+.movieimg {
+	width: 75px;
+	height: 110px;
+	position: absolute;
+	float: left;
+	z-index: 0;
+}
+
+.info{
+	margin-left:105px;	
+}
+p{
+	display: inline;
+}
+
+.moviep {
+	color: orange;
+}
+
+footer {
+	position: relative;
+	top: 2100px;
+	width: 100%;
+	height: 240px;
+	background-color: #F8F8F8;
+}
+
+.bottemul {
+	display: inline-block;
+	list-style: none;
+	margin: 20px;
+}
+
+li p {
+	font: lighter;
+	color: #888888;
+}
+
+h5 {
+	font-weight: 700;
+}
+
+#ulli {
+	position: relative;
+	left: 20%;
+	display: inline-block;
+}
+
+#contact {
+	position: relative;
+	left: 600px;
+	display: inline-block;
+}
+
+#bottem {
+	border-top: 1px solid grey;
+	padding-top: 10px;
+	position: relative;
+	left: 30%;
+	width: 800px;
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>选择座位</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/chooseSeat.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       	
+       		<div id="cinemapanel">
+	       		<div id="title">
+	       			<img src="/img/cinema.jpg">
+	       			<div id="content">
+	       				<h3 th:text="${cinemaname}" style="color:white;"></h3><br><br>
+	       				<p th:text="${address}" style="color:white;"></p><br><br>
+	       				<p>电话: </p>
+	       				<p th:text="${phone}"></p><br><br>
+	       				<p>影院服务  --------------------------------------------------------</p><br>
+	       				<p>&nbsp&nbsp&nbsp&nbsp</p><p th:text="${service}"></p>
+	       			</div>
+	       		</div>
+       		</div>
+       			
+       			
+       			
+       		<div id="seats">
+       			<h5>选择座位</h5>
+       			<br>
+       			<hr color="#888888" style="height:2px;width:200px;margin-left:123px">
+       			<h5 style="margin-left:190px;">银幕中央</h5>
+       			<table>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j1=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=1j)}"></a>
+       					</td>
+       				</tr>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j2=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=2j)}"></a>
+       					</td>
+       				</tr>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j3=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=3j)}"></a>
+       					</td>
+       				</tr>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j4=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=4j)}"></a>
+       					</td>
+       				</tr>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j5=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=5j)}"></a>
+       					</td>
+       				</tr>
+       				<tr>
+       					<td class="tdseat">
+       						<a th:class="${map.a6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6a)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.b6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6b)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.c6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6c)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.d6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6d)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.e6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6e)}"></a>
+       					</td>
+       					<td class="tdseat" style="margin-left:20px">
+       						<a th:class="${map.f6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6f)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.g6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6g)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.h6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6h)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.i6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6i)}"></a>
+       					</td>
+       					<td class="tdseat">
+       						<a th:class="${map.j6=='1'}?'selected':'aseat'" th:href="@{/ticket(movieName=${map.movieName},cinemaName=${map.cinemaName},scheduleId=${map.scheduleId},seatId=6j)}"></a>
+       					</td>
+       				</tr>
+       			</table>
+       		</div>
+       		
+       	</article>
+       	<footer class="footer">
+       	
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	        $(".selected").attr("href","####");
+	    });
+	</script>
+</html>

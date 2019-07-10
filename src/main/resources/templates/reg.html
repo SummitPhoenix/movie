@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>注册</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<style type="text/css">
+			body{
+				font-family:Microsoft YaHei;
+				background-image: url("/img/p3765.jpg");
+			}
+			.right{
+				position:absolute;
+				left:1700px;
+			}
+			
+			
+			article{
+				
+			}
+			ul{
+				list-style: none;
+			}
+			img{
+				position:absolute;
+				left:10%;
+				top: 30%;
+				width:414px;
+				height:363px;
+			}
+			#form{
+				background: rgba(0,0,0,.5);
+				width:430px;
+				height:330px;
+				position: absolute;
+				left:60%;
+				top: 30%;
+			}
+			h2{
+				margin-left: 30px;
+			}
+			h2,p{
+				color:#ffffff;
+			}
+			p{
+				display: inline-block;
+			}
+			#button{
+				width:214px;
+			}
+		</style>
+		<title>注册</title>
+	</head>
+ 
+	<body>
+		<header>
+       		<nav class="navbar navbar-inverse" role="navigation">
+			    <div class="container-fluid">
+			    <div>
+			        <ul class="nav navbar-nav">
+			        	<li><a href="/index">首页</a></li>
+			            <li class="right"><a href="login">登录</a></li>
+			            <li class="right"><a href="reg">注册</a></li>
+			            
+			        </ul>
+			    </div>
+			    </div>
+			</nav>
+		</header>
+		<img src="/img/highscore.png">
+		<div id="form">
+			<form action="handleReg" onsubmit="return check()" method="post">
+		        <h2>用户注册</h2>
+				<hr>
+		        <ul>
+			        <li>
+			           	<p>手机号：</p><input type="text" name="phone" id="phone" onblur="checkPhone()" /> <span id="phoneSpan" style=" color:#F00">*11位数字</span>
+			        </li>
+			        <li>
+			            <p>用户名：</p><input type="text" name="username" id="username" onblur="checkUsername()" /> <span id="usernameSpan" style=" color:#F00">*字母开头，4-16位</span>
+			        </li>
+			        <li>
+			            <p>密码　：</p><input type="text" name="password" id="password" onblur="checkPassword()" /> <span id="passwordSpan" style=" color:#F00">*6-16位</span>
+			        </li>
+			        <li>
+			            <p>邮箱　：</p><input type="text" name="email" id="email" onblur="checkEmail()" /> <span id="emailSpan" style=" color:#F00">*邮箱</span>
+			        </li>
+			        <li>
+			            <p>所在地：</p><input type="text" name="location" id="location" onblur="checkLocation()" /> <span id="locationSpan" style=" color:#F00">*2-10位汉字</span>
+			        </li>
+			        <li>
+			            <input id="button" type="submit" value="注册"/>
+			        </li>
+			    </ul>
+			</form>
+		</div>
+	</body>
+	<script language="javascript">
+		var f1 = false;
+		var f2 = false;
+		var f3 = false;
+		var f4 = false;
+		var f5 = false;
+		function checkPhone(){
+			var obj=document.getElementById("phone");
+			var id=trim(obj.value);
+			var Regex= /^1\d{10}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>手机号格式错误！</font>";
+			}else{
+				f1 = true;
+			}
+			var span = document.getElementById("phoneSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function checkUsername(){
+			var obj=document.getElementById("username");
+			var id=trim(obj.value);
+			var Regex= /^[a-zA-z]\w{3,15}$/;
+			var Regex2=/^[\u4e00-\u9fa5]{2,10}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(Regex.test(id)||Regex2.test(id)){
+				f2 = true;
+			}else{
+				msg ="<font color='red'>用户名格式错误！</font>";
+			}
+			var span = document.getElementById("usernameSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function checkPassword(){
+			var obj=document.getElementById("password");
+			var id=trim(obj.value);
+			var Regex= /^\w{6,16}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>密码格式错误！</font>";
+			}else{
+				f3 = true;
+			}
+			var span = document.getElementById("passwordSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function checkEmail(){
+			var obj=document.getElementById("email");
+			var id=trim(obj.value);
+			var Regex= /^\w+@\w+.\w+$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>邮箱格式错误！</font>";
+			}else{
+				f4 = true;
+			}
+			var span = document.getElementById("emailSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function checkLocation(){
+			var obj=document.getElementById("location");
+			var id=trim(obj.value);
+			var Regex= /^[\u4e00-\u9fa5]{2,10}$/;
+			var msg ="<font color='green'>正确</font>";
+			if(!Regex.test(id)){
+				msg ="<font color='red'>所在地格式错误！</font>";
+			}else{
+				f5 = true;
+			}
+			var span = document.getElementById("locationSpan");
+			span.innerHTML = msg;
+			return msg == "<font color='green'>正确</font>";
+		}
+		function trim(s){
+			return s.replace(/^\s+|\s+$/g,"");
+		}
+		function check(){
+			if(f1&&f2&&f3&&f4&&f5==true){
+				return true;
+			}
+			else{
+				alert("注册失败");
+				return false;
+			}
+		}
+	</script>
+</html>

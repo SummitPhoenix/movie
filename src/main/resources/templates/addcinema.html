@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>添加影院详情</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/addcinema.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">影院管理</h3>
+				        <p class="subtitle">影院列表</p>
+				    </div>
+				    <div class="panel-body">
+				    	<hr>
+					    <div th:each="moviename:${list}" class="movielist">
+					    	<a class="m" th:text="${moviename}" href="####"></a><br>
+					    </div>
+				    	
+				    </div>
+				</div>
+       		</div>
+       		
+       		<div class="import">
+       				<form action="/cinemaInfoImport" method="post">
+	       				<ul>
+	       					<li>
+								<h4>影院信息导入</h4>       						
+	       					</li>
+					        <li>
+					           	<p>影院名：</p><input type="text" name="cinemaName" id="cinemaName" />
+					        </li>
+					        <li>
+					            <p>地址　：</p><input type="text" name="address" id="address" />
+					        </li>
+					        <li>
+					            <p>电话　：</p><input type="text" name="phone" id="phone" />
+					        </li>
+					        <li>
+					            <p>服务　：</p><textarea name="service" id="service" /></textarea>
+					        </li>
+					        <li>
+					            <input id="button" type="submit" value="影院信息录入"/>
+					        </li>
+					    </ul>
+	       			</form>
+       		</div>
+       		<!-- <div class="import">
+       				<form action="/cinemalistUpdate" method="post">
+	       				<ul>
+	       					<li>
+								<h4>添加影院到影院列表</h4>       						
+       						</li>
+	       					<li>
+					           	<p>影院名：</p><input type="text" name="cinemaName" id="cinemaName" />
+					        </li>
+					        <li>
+					            <input id="button" type="submit" value="添加影院列表"/>
+					        </li>
+	       				</ul>
+       				</form>
+       			</div> -->
+       		
+       		<div class="import">
+	       			<form action="/addSingleSchedule" method="post">
+		       			<ul>
+		       				<li>
+								<h4>添加时刻表中一条记录</h4>       						
+	       					</li>
+	       					<li>
+						        <p>影院名称：</p><input type="text" name="cinemaName" id="cinemaName" />
+						    </li>
+		       				<li>
+						        <p>上映日期：</p><input type="text" name="screenDate" id="screenDate" />
+						    </li>
+						    <li>
+						        <p>上映时间：</p><input type="text" name="screenTime" id="screenTime" />
+						    </li>
+						    <li>
+						        <p>语言版本：</p><input type="text" name="languageVersion" id="languageVersion" />
+						    </li>
+						    <li>
+						        <p>影厅选择：</p><input type="text" name="videoHall" id="videoHall" />
+						    </li>
+						    <li>
+						        <p>座位价格：</p><input type="text" name="price" id="price" />
+						    </li>
+						    <li>
+						        <input id="button" type="submit" value="添加时刻表记录"/>
+						    </li>
+		       			</ul>
+	       			</form>
+	       		</div>
+	       		
+	       		<div class="import">
+	       			<form action="/updateMovieStatus" method="post">
+		       			<ul>
+		       				<li>
+								<h4>修改电影状态</h4>       						
+	       					</li>
+	       					<li>
+						        <p>电影名：</p><input type="text" name="movieName" id="movieName"/>
+						    </li>
+	       					<li>
+	       						<p>例如'上映'，'未上映'，'可播放'</p>
+	       					</li>
+	       					<li>
+						        <p>状态：</p><input type="text" name="movieStatus" id="movieStatus"/>
+						    </li>
+						    <li>
+						        <input id="button" type="submit" value="修改电影状态"/>
+						    </li>
+		       			</ul>
+	       			</form>
+	       		</div>
+	       		<div class="import">
+	       			<form action="/addCinemaToCinemaList" method="post">
+		       			<ul>
+		       				<li>
+								<h4>为电影添加影院</h4>       						
+	       					</li>
+	       					<li>
+						        <p>电影名：</p><input type="text" name="moviename" id="movieName"/>
+						    </li>
+	       					<li>
+						        <p>影院名：</p><input type="text" name="cinemaName" id="cinemaName"/>
+						    </li>
+						    <li>
+						        <input id="button" type="submit" value="添加影院"/>
+						    </li>
+		       			</ul>
+	       			</form>
+	       		</div>
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	</script>
+</html>

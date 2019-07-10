@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="referrer" content="no-referrer" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <title>热门影讯</title>
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery.js"></script> -->
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+        <script src="bootstrap.min.js"></script>
+		<link href="css/imageText.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       		
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				   
+				    <div class="panel-body">
+				    	<div th:utext="${content}"></div>
+				    </div>
+				</div>
+				
+				
+       		</div>
+       		
+       		
+			
+       	</article>
+       	
+    </body>
+    <script type="text/javascript">
+	    $(function(){
+	        $(".header").load("header.html");
+	    });
+	    setTimeout(function () { 
+	    	$("#index").attr("class", "active");
+	    }, 50);
+	</script>
+</html>

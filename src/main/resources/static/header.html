@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse" role="navigation">
+	<div class="container-fluid">
+		<div>
+			<ul class="nav navbar-nav">
+				<li><a href="/index">首页</a></li>
+				<li class="right"><a href="userInfo">个人中心</a></li>
+				<li class="right"><a href="login">登录</a></li>
+				<li class="right"><a href="reg">注册</a></li>
+
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="search">
+	<!--搜索栏-->
+	<nav id="search" class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/index">影讯观影平台</a>
+			</div>
+			<form class="navbar-form navbar-left" role="search" action="/search" method="get">
+				<div class="form-group">
+					<input type="text" class="form-control" name="moviename" placeholder="搜索电影">
+				</div>
+				<button type="submit" class="btn btn-default">搜索</button>
+			</form>
+
+		</div>
+	</nav>
+</div>
+
+
+<!-- 导航栏 -->
+<div id="menu">
+	<ul id="nav" class="nav nav-pills">
+		<li class="temp" id="index"><a href="/index">影讯</a></li>
+		<li class="temp" id="recommend"><a href="/recommend">推荐</a></li>
+		<li class="temp" id="screen"><a href="/screen?type=score&page=1">正在热映</a></li>
+		<li class="temp" id="typeRank"><a href="/rank?type=剧情&page=1">分类</a></li>
+	</ul>
+</div>

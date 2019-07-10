@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>在线播放</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link href="css/video.css" rel="stylesheet" type="text/css">
+		<link href="video-js.css" rel="stylesheet">
+		<!-- <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet"> -->
+  		<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  		<!-- <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script> -->
+  		
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+			
+			<video id="my-video" class="video-js" controls preload="auto" width="1280" height="720" data-setup="{}">
+	    		<source th:src="${movieName}" type='video/mp4'>
+  			</video>
+
+  
+			
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script src="video.js"></script>
+    <!-- <script src="https://vjs.zencdn.net/7.4.1/video.js"></script> -->
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	</script>
+</html>

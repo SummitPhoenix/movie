@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="referrer" content="no-referrer" />
+        <title>分类</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link href="css/rank.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div id="type">
+       			<h4 style="margin-left:15px">选择类型</h4>
+       			<hr>
+       			<table>
+       				<tr>
+       					<td><a href="/rank?type=剧情&page=1">剧情</a></td>
+       					<td><a href="/rank?type=动作&page=1">动作</a></td>
+       					<td><a href="/rank?type=喜剧&page=1">喜剧</a></td>
+       					<td><a href="/rank?type=爱情&page=1">爱情</a></td>
+       					<td><a href="/rank?type=科幻&page=1">科幻</a></td>
+       					<td><a href="/rank?type=悬疑&page=1">悬疑</a></td>
+       				</tr>
+       			</table>
+       		</div>
+       		<div class="panelTemplate">
+       			<div th:each="m:${list}" class="movie">
+					<a class="aimg" th:href="@{/movie(moviename=${m.name})}">
+						<img class="movieimg" th:src="${m.id}">
+					</a>
+					<div class="info">
+						<a th:href="@{/movie(moviename=${m.name})}" th:text="${m.name}"></a>
+					    <P th:text="${m.suffix}"></P>
+					    <br><br>
+					    <p>导演: </p><P th:text="${m.director}"></P>
+					    <br>
+					    <p>编剧: </p><P th:text="${m.screenWriter}"></P>
+					    <br>
+					    <p>类型: </p><P th:text="${m.type}"></P>
+					    <p>地区: </p><P th:text="${m.region}"></P>
+					    <br><br>
+					    <p>评分: </p><p class="moviep" th:text="${m.score}"></p>
+					    &nbsp&nbsp&nbsp&nbsp
+					    <p>(</p><P th:text="${m.assessNum}"></P>
+					    <p>人评价</p><p>)</p>
+					</div>
+				    
+				</div>
+       		</div>
+       		
+       		<div style="margin-top:10px;">
+       			<form action="/rank" method="get">
+       				<input type="hidden" name="type" id="hidden">
+       				<p>跳转到第</p><input type="text" style="width:20px;" name="page" onfocus="jump(${type})"><p>页</p>
+       				<input type="submit" value="点击跳转">
+       			</form>
+       		</div>
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	    setTimeout(function () {
+	    	$("#typeRank").attr("class", "active");
+	    }, 50);
+	    
+	</script>
+	<script th:inline="javascript">
+		$(function(){
+			var type=[[${type}]];
+			$("#hidden").val(type);
+		});
+	</script>
+</html>

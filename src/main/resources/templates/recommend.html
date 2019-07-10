@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="referrer" content="no-referrer" />
+        <title>推荐</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link href="css/index.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">为你推荐的电影</h3>
+				    </div>
+				    <div class="panel-body">
+				    	<hr>
+					    <div th:each="m:${list}" class="movie">
+					    	<a class="aimg" th:href="@{/movie(moviename=${m.name})}">
+					    		<img class="movieimg" th:src="${m.id}">
+					    	</a>
+				    		<a class="moviea" th:href="@{/movie(moviename=${m.name})}" th:text="${m.name}"></a>
+				    		<p class="moviep" th:text="${m.score}"></p>
+					    </div>
+				    	
+				    </div>
+				</div>
+       		</div>
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	    setTimeout(function () { 
+	    	$("#recommend").attr("class", "active");
+	    }, 50);
+	</script>
+</html>

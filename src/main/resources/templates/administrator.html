@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>影院管理</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/administrator.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">影院管理</h3>
+				        <p class="subtitle">当前上映电影列表</p>
+				    </div>
+				    <div class="panel-body">
+				    	<hr>
+					    <div th:each="moviename:${list}" class="movielist">
+					    	<p th:text="${movienameStat.count}"></p><p>：</p><a class="m" th:text="${moviename}" th:href="@{/addcinema(moviename=${moviename})}"></a><br>
+					    </div>
+				    	
+				    </div>
+				    
+				</div>
+       		</div>
+       		<p>上传入口：</p>
+       		<a href="/input" style="margin-right:20px">上传电影信息</a>
+			<a href="/upload" style="margin-right:20px">上传影讯图文</a>
+			<a href="/uploadImgFolder">批量上传图片</a>
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	</script>
+</html>

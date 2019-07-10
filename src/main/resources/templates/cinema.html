@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>选择场次</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/cinema.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       	
+       		<div id="cinemapanel">
+	       		<div id="title">
+	       			<img src="/img/cinema.jpg">
+	       			<div id="content">
+	       				<h3 th:text="${cinemaname}" style="color:white;"></h3><br><br>
+	       				<p th:text="${address}" style="color:white;"></p><br><br>
+	       				<p>电话: </p>
+	       				<p th:text="${phone}"></p><br><br>
+	       				<p>影院服务  --------------------------------------------------------</p><br>
+	       				<p>&nbsp&nbsp&nbsp&nbsp</p><p th:text="${service}"></p>
+	       			</div>
+	       		</div>
+       		</div>
+       			
+       			
+       			
+       		<div id="cinemalist">
+       			<h4 style="color:black;font-weight:700;">观影时间: </h4>
+       			<hr>
+       			<table class="plist">
+				  <thead>
+				    <tr>
+				      <th>放映时间</th>
+				      <th>语言版本</th>
+				      <th>放映厅</th>
+				      <th>售价（元）</th>
+				      <th>选座购票</th>
+				    </tr>
+				  </thead>
+				</table>
+				 
+				<div th:each="m:${list}" class="schedule">
+					<span style="padding-top:10px">
+						<p style="font:15px;color:#888888" th:text="${m.screenDate}"></p>
+					  	<p style="font:15px;color:#888888;margin-left:10px" th:text="${m.screenTime}"></p>
+					  	<br>
+					  	<p th:text="${m.filmLength}" style="font:15px;color:#888888;margin-left:80px"></p>
+					</span>
+					<span>
+					  	<p style="font:15px;color:#888888;margin-left:15px" th:text="${m.languageVersion}"></p>
+					</span>
+					<span>
+					  	<p style="font:15px;color:#888888;margin-left:10px" th:text="${m.videoHall}"></p>
+					</span>
+					<span>
+					  	<p style="font:15px;color:#888888;margin-left:10px" th:text="${m.price}"></p>
+					</span>
+					
+					<a th:href="@{/chooseSeat(movieName=${m.movieName},cinemaName=${m.cinemaName},scheduleId=${m.scheduleId})}" id="buy-btn">选座购票</a>
+					<hr>
+				</div>
+       		</div>
+       		
+       		
+       	</article>
+       	<footer class="footer">
+       	
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	    });
+	</script>
+</html>

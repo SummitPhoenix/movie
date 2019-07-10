@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="UTF-8"/>
+        <title>个人信息</title>
+		<link href="bootstrap.min.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+		<link rel="stylesheet" href="css/userInfo.css" type="text/css">
+    </head>
+    <body>
+       	<header class="header">
+       		
+		</header>
+       	<article>
+       	
+       		<a id="advertisement" href="#">
+       			<img src="/img/advertisement.png">
+       		</a>
+       		
+       		<div class="panelTemplate">
+       			<div class="panel panel-info">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">用户信息</h3>
+				    </div>
+				    <div class="panel-body">
+				    	<hr>
+				    	<br>
+					   	<div class="userInfo">
+							<p>手机号：</p><p th:text="${phone}"></p><br>
+							<p>用户名：</p><p th:text="${username}"></p><br>
+							<p>邮箱：</p><p th:text="${email}"></p><br>
+							<p>所在地：</p><p th:text="${location}"></p><br>
+							<p>取票码：</p><p th:text="${ticketId}"></p><br>
+							
+							<div th:each="m:${ticketIdList}" class="ticket">
+								<a href="####" th:text="${m.ticketId}" onclick="showTicket(this)"></a>
+							</div>
+							<div id="ticket">
+       			
+       						</div>
+						</div>
+				    </div>
+				</div>
+       		</div>
+			<div>
+				<a href="/signOut" id="signOut">退出登录</a>
+			</div>
+			<div th:if="${admin} eq '1'" id="admin">
+				<a href="/administrator">影院管理</a>
+			</div>
+       		
+       	</article>
+       	<footer class="footer">
+       		
+       	</footer>
+    </body>
+    <script>
+	    $(function(){
+	        $(".header").load("header.html");
+	        $(".footer").load("footer.html");
+	        $("#ticket").hide();
+	    });
+	    
+	</script>
+	<script th:inline="javascript">
+		function showTicket(obj){
+			var ticketId = $(obj).html();
+			$("#ticket").show();
+			var json = [[${list}]];
+            if(json != ''){
+                json = JSON.parse(json);
+                for(var p in json){
+                	
+                    if (ticketId==json[p].ticketId){
+                    	$("#ticket").html("<div>"+
+    	           				"<div style='width:10px;height:15px;background-color:orange;display:inline-block;'></div>"+
+    	           				"<h4 style='display:inline'><font color='orange'>NetFilx</font></h4>"+
+    	           				"<h4 style='display:inline'>电影</h4>"+
+    	           			"</div>"+
+    	           			"<div>"+
+    	           				"<h3>"+json[p].cinemaName+"</h3>"+
+    	           				"<h4>"+"影片 : "+json[p].movieName+"</h4>"+
+    	           				"<h4>"+"影厅 : "+json[p].videoHall+"</h4>"+
+    	           				"<h3 style='display:inline'>"+json[p].row+json[p].seat+"&nbsp&nbsp&nbsp&nbsp"+json[p].screenDate+"&nbsp&nbsp&nbsp&nbsp"+json[p].screenTime+"</h3>"+
+    	           				"<h6>"+"票价 : "+json[p].price+"</h6>"+
+    	           				"<h6>票类 :  网络售票</h6>"+
+    	           				"<h6>"+"取票码 : "+json[p].ticketId+"</h6>"+
+    	           			"</div>"+
+    	           			"<div style='width:100%;height:20px;background-color:orange;'>"+
+    	           				"<p style='color:white'>&nbsp客服热线: 4000-406-842 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Netflix电影</p>"+
+    	           			"</div>");
+                    }
+                }
+ 
+            }
+		}
+	</script>
+</html>

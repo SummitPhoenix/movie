@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.MovieMapper">
+	
+	<insert id="inputData" parameterType="com.web.entity.Movie">
+		insert into 
+			Movie (
+				id,
+				name,
+				suffix,
+				score,
+				assessNum,
+				director,
+				screenWriter,
+				performer,
+				type,
+				region,
+				language,
+				releaseDate,
+				filmLength,
+				alias,
+				synopsis,
+				`release`
+			)
+		values
+			(
+				#{id},
+				#{name},
+				#{suffix},
+				#{score},
+				#{assessNum},
+				#{director},
+				#{screenWriter},
+				#{performer},
+				#{type},
+				#{region},
+				#{language},
+				#{releaseDate},
+				#{filmLength},
+				#{alias},
+				#{synopsis},
+				#{release}
+			)
+	</insert>
+	
+	<select id="getPopularMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			score
+		from
+			Movie
+		order by
+			assessNum
+		desc
+		limit 10
+	</select>
+	
+	<select id="getHighScoreScreenMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			type,
+			region
+		from
+			Movie
+		where
+			`release` = 1
+		order by
+			score
+		desc
+		limit #{page},10
+	</select>
+	
+	<select id="getPopularScreenMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			type,
+			region
+		from
+			Movie
+		where
+			`release` = 1
+		order by
+			assessNum
+		desc
+		limit #{page},10
+	</select>
+	
+	<select id="getBoxOfficeScreenMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			type,
+			region
+		from
+			Movie,BoxOffice
+		where
+			`release` = 1
+		and
+			Movie.id = BoxOffice.movieId
+		order by
+			BoxOffice.record*10
+		desc
+		limit #{page},10
+	</select>
+	
+	<select id="getTypeMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			score
+		from
+			Movie
+		where
+			type like "%"#{type}"%"
+		order by
+			assessNum
+		desc
+		limit 10
+	</select>
+	
+	<select id="getHighScoreMovie" resultType="java.util.HashMap">
+		select
+			id,
+			name,
+			score
+		from
+			Movie
+		order by
+			score
+		desc
+		limit 10
+	</select>
+	
+	<select id="getMovieByName" resultType="com.web.entity.Movie">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			performer,
+			type,
+			region,
+			language,
+			releaseDate,
+			filmLength,
+			alias,
+			synopsis,
+			`release`
+		from
+			Movie
+		where
+			name = #{name}
+	</select>
+	
+	<select id="searchMovieByName" resultType="com.web.entity.Movie">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			performer,
+			type,
+			region,
+			language,
+			releaseDate,
+			filmLength,
+			alias,
+			synopsis,
+			`release`
+		from
+			Movie
+		where
+			name 
+		like 
+			"%"#{name}"%"
+	</select>
+	
+	<select id="getMovieFilmLength" resultType="java.lang.String">
+		select
+			filmLength
+		from
+			Movie
+		where
+			name = #{name}
+	</select>
+	
+	<select id="getTypeRankList" resultType="com.web.entity.Movie">
+		select
+			id,
+			name,
+			suffix,
+			score,
+			assessNum,
+			director,
+			screenWriter,
+			type,
+			region
+		from
+			Movie
+		where
+			type
+		like 
+			"%"#{type}"%"
+		order by
+			score
+		desc
+		limit #{page},10
+	</select>
+	
+	<select id="getTwenty" resultType="com.web.entity.MovieVo">
+		select
+			Movie.id,
+			Movie.score,
+			Movie.assessNum,
+			BoxOffice.record
+		from
+			Movie,BoxOffice
+		where
+			Movie.id = Boxoffice.movieId
+		order by
+			score
+		desc
+		limit 20
+	</select>
+	
+	<select id="getMovieIdByMovieName" resultType="java.lang.String">
+		select
+			id
+		from
+			Movie
+		where
+			name = #{movieName}
+	</select>
+	
+	<insert id="addComment" parameterType="com.web.entity.Comment">
+		insert into 
+			Comment (
+				movieId,
+				username,
+				score,
+				evaluationDate,
+				userComment
+			)
+		values
+			(
+				#{movieId},
+				#{username},
+				#{score},
+				#{evaluationDate},
+				#{userComment}
+			)
+	</insert>
+	
+	<select id="getComment" resultType="com.web.entity.Comment">
+		select
+			*
+		from
+			Comment
+		where
+			movieId = (select id from movie where name = #{movieName})
+		order by
+			evaluationDate
+		desc
+		limit #{page},5
+	</select>
+	
+	<select id="getSimpleMovieInfo" resultType="com.web.entity.MovieRecommendVo">
+		select
+			id,
+			name,
+			score,
+			type
+		from
+			Movie
+		where
+			id = #{id}
+	</select>
+	
+	<select id="getTwoTypes" resultType="com.web.entity.MovieVo">
+		select
+			Movie.id,
+			Movie.score,
+			Movie.assessNum,
+			BoxOffice.record
+		from
+			Movie,BoxOffice
+		where
+			Movie.id = Boxoffice.movieId
+		and
+			Movie.type like "%"#{interest1}"%" or "%"#{interest2}"%"
+		order by
+			score
+		desc
+		limit 10
+	</select>
+	
+	<select id="getTitle" resultType="com.web.entity.ImageText">
+		select 
+			id,
+			title,
+			brief
+		from
+			imageText
+	</select>
+	<delete id="deleteComment">
+		delete from
+			comment
+		where
+			movieId = #{movieId}
+		and 
+			username = #{username}
+	</delete>
+	
+	<update id="plusAssessNum">
+		update
+			movie
+		set
+			assessNum = assessNum+1
+		where
+			name = #{movieName}
+	</update>
+ </mapper>
